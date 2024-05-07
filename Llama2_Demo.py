@@ -27,7 +27,7 @@ def get_llama_response(prompt: str) -> None:
     """
     sequences = llama_pipeline(
         prompt,
-        do_sample=True,
+        do_sample=False,
         top_k=10,
         num_return_sequences=1,
         eos_token_id=tokenizer.eos_token_id,

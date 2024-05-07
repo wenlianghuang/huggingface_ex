@@ -40,22 +40,27 @@ def get_Phi_Example(prompt: str) -> None:
     #print("Chatbot:", sequences[1]['generated_text'])
     print(sequences[0]['generated_text'])
 '''
-message = [
+messages = [
     {"role":"system","content":"You are a reporter"},
-    {"role":"user","content":""}
+    {"role":"user","content":"The capital of China is?"},
 ]
 generation_args = {
-    "max_new_tokens": 500,
+    "max_new_tokens": 256,
     "return_full_text": False,
     "temperature": 0.5,
     "do_sample": False,
+    
 }
 while True:
     user_input = input("You: ")
     if user_input.lower() in ['bye','quit','exit']:
         print("Chatbot: Goodbye")
         break
-    message[1]['content'] = user_input
-    output = pipe(message,**generation_args)
+    messages[1]['content'] = user_input
+    #print(message)
+    
+    output = pipe(messages,**generation_args)
+    #output = pipe(str(user_input),**generation_args)
+    #print(type(output[0]['generated_text']))
     print(output[0]['generated_text'])
     
