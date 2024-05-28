@@ -41,7 +41,7 @@ def get_Phi_Example(prompt: str) -> None:
     print(sequences[0]['generated_text'])
 '''
 messages = [
-    {"role":"system","content":"You are a doctor"},
+    {"role":"system","content":"You are a AI helper"},
     {"role":"user","content":"The capital of China is?"},
 ]
 generation_args = {
