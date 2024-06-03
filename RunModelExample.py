@@ -11,7 +11,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_path)
 # 設置模型為評估模式
 model.eval()
 
-def generate_answer(question, model, tokenizer, max_length=400, num_return_sequences=1):
+def generate_answer(question, model, tokenizer, max_length=200, num_return_sequences=1):
     # 編碼輸入問題
     inputs = tokenizer.encode(question, return_tensors='pt')
     
@@ -25,7 +25,8 @@ def generate_answer(question, model, tokenizer, max_length=400, num_return_seque
 
 # 示例問題
 #question = "How has the new training facility impacted the team's physical performance?"
-question = "Which type of rock is commonly used for construction and why?"
+#question = "The capital of USA is?"
+question = "Create a suspenseful story about a man who wakes up in a strange hotel room with no memory of how he got there."
 # 生成答案
 answers = generate_answer(question, model, tokenizer)
 
