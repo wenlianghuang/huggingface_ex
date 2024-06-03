@@ -7,3 +7,4 @@ phi-2-medquad
 *.jpg
 checkpoint*
 phi-3-*
+sample_phi3_finetune_example/*
