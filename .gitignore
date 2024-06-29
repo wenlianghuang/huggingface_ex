@@ -8,3 +8,4 @@ phi-2-medquad
 checkpoint*
 phi-3-*
 sample_phi3_finetune_example/*
+models--microsoft*
