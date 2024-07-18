@@ -17,7 +17,8 @@ def generate_text_stream(prompt: str):
 
 with gr.Blocks() as demo:
     chatbot = gr.Chatbot()
-    msg = gr.Textbox()
+    msg = gr.Textbox(placeholder="Type your message here...")
+    submit = gr.Button("Submit")
     clear = gr.Button("Clear")
 
     def user_submit(user_message, history):
@@ -32,9 +33,9 @@ with gr.Blocks() as demo:
             yield history
 
     def clear_click():
-        return [], []
+        return []
 
-    msg.submit(user_submit, [msg, chatbot], [msg, chatbot]).then(
+    submit.click(user_submit, [msg, chatbot], [msg, chatbot]).then(
         bot_response, chatbot, chatbot
     )
     clear.click(clear_click, None, chatbot)
